@@ -1,2 +1,2 @@
 # shiqiducom
-shiqidu.com`s app 
+shiqidu.com`s app
