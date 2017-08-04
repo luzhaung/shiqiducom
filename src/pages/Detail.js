@@ -23,7 +23,6 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import {DetailUrl,CommentlUrl} from '../def/Api';
 import { AppColors, AppSizes, AppFonts } from '../style';
 import Item from '../component/Comment';
-import HTMLView from 'react-native-htmlview';
 
 const containerWidth = AppSizes.screen.width - AppSizes.padding * 2;
 

@@ -18,7 +18,6 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ImagePicker from 'react-native-image-crop-picker';
-import {RichTextEditor, RichTextToolbar} from 'react-native-zss-rich-text-editor';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import ActionSheet from 'react-native-actionsheet'
 import {uploadImage} from '../def/Api';
@@ -95,9 +94,6 @@ export default class Create extends Component{
             images: null,
             textContent: '',
         };
-        this.getHTML = this.getHTML.bind(this);
-        this.setFocusHandlers = this.setFocusHandlers.bind(this);
-        this.handlePress = this.handlePress.bind(this);
         this.showActionSheet = this.showActionSheet.bind(this);
     }
 
@@ -121,25 +117,6 @@ export default class Create extends Component{
         }
     }
 
-    onEditorInitialized() {
-		this.setFocusHandlers();
-        this.getHTML();
-    }
-
-    async getHTML() {
-        const titleHtml = await this.richtext.getTitleHtml();
-        const contentHtml = await this.richtext.getContentHtml();
-        //alert(titleHtml + ' ' + contentHtml)
-    }
-
-    setFocusHandlers() {
-        this.richtext.setTitleFocusHandler(() => {
-            //alert('title focus');
-        });
-        this.richtext.setContentFocusHandler(() => {
-            //alert('content focus');
-        });
-    }
 
     renderImage(image) {
         return <Image style={{width: 50, height: 50, resizeMode: 'center'}} source={image} />
@@ -237,25 +214,17 @@ export default class Create extends Component{
 	render() {
 		return (
 			<View style={styles.container}>
-				<RichTextEditor
-					ref={(r)=>this.richtext = r}
-					initialTitleHTML={'标题'}
-					initialContentHTML={'内容'}
-					editorInitializedCallback={() => this.onEditorInitialized()}
-				/>
+                <TextInput
+                    style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+                    onChangeText={(text) => this.setState({text})}
+                    value={this.state.text}
+                />
 				<ScrollView style={styles.thumbImages}>
 					<View style={styles.thumbImagesView}>
 						{this.state.image ? this.renderAsset(this.state.image) : null}
 						{this.state.images ? this.state.images.map(i => <View key={i.uri}>{this.renderAsset(i)}</View>) : null}
 					</View>
 				</ScrollView>
-				<RichTextToolbar
-					style={styles.TextToolbar}
-					getEditor={() => this.richtext}
-					selectedButtonStyle={{backgroundColor: '#999999'}}
-					/*onPressAddImage={this.selectPhoto.bind(this)}*/
-                    onPressAddImage={this.showActionSheet}
-				/>
                 <ActionSheet
                     ref={o => this.ActionSheet = o}
                     title={title}

@@ -1834,7 +1834,7 @@ inquirer@^0.12.0:
     strip-ansi "^3.0.0"
     through "^2.3.6"
 
-invariant@2.2.0, invariant@^2.2.0:
+invariant@^2.2.0:
   version "2.2.0"
   resolved "http://registry.npm.taobao.org/invariant/download/invariant-2.2.0.tgz#c8d7e847366a49cc18b622f058a689d481e895f2"
   dependencies:
@@ -3088,26 +3088,6 @@ react-native-video@^1.0.0:
   resolved "http://registry.npm.taobao.org/react-native-video/download/react-native-video-1.0.0.tgz#ba92b9e1a114c2c1f3a6144b0639ca3f69a0cc74"
   dependencies:
     keymirror "0.1.1"
-
-react-native-webview-bridge-updated@^1.0.0:
-  version "1.0.8"
-  resolved "http://registry.npm.taobao.org/react-native-webview-bridge-updated/download/react-native-webview-bridge-updated-1.0.8.tgz#8cbae2d45bc437fe9146d90a3b44dc9bd1ee8660"
-  dependencies:
-    invariant "2.2.0"
-    keymirror "0.1.1"
-
-"react-native-webview-bridge@git+https://github.com/alinz/react-native-webview-bridge.git":
-  version "0.33.0"
-  resolved "git+https://github.com/alinz/react-native-webview-bridge.git#cab93e4ce45327f2afc3e966b653ae7c62365f6b"
-  dependencies:
-    invariant "2.2.0"
-    keymirror "0.1.1"
-
-react-native-zss-rich-text-editor@^1.0.2:
-  version "1.0.2"
-  resolved "http://registry.npm.taobao.org/react-native-zss-rich-text-editor/download/react-native-zss-rich-text-editor-1.0.2.tgz#87e5c448fe58081b51b947d077530700735a9ca6"
-  dependencies:
-    react-native-webview-bridge-updated "^1.0.0"
 
 react-native@0.44.3:
   version "0.44.3"
