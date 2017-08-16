@@ -118,7 +118,7 @@ export default class Create extends Component{
     }
 
 
-    renderImage(image) {
+    static renderImage(image) {
         return <Image style={{width: 50, height: 50, resizeMode: 'center'}} source={image} />
     }
 
@@ -204,8 +204,8 @@ export default class Create extends Component{
 		const access_token = await AsyncStorage.getItem('access_token');
 		if (!access_token){
             const { navigate } = this.props.navigation;
-			Alert.alert('提示信息', '请先登录!');
-            navigate('Login');
+			//Alert.alert('提示信息', '请先登录!');
+            //navigate('Login');
 		}else{
             console.log(access_token);
 		}

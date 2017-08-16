@@ -171,7 +171,7 @@ export default class List extends Component{
 							post_time={item.create_time}
 							comments_num={item.total_comment_num !== null ? parseInt(item.total_comment_num) : 0}
 							onPress={()=>navigate('Detail',{
-								id: item.id,
+								id: item.id.toString(),
 								title: item.title,
 								isVisible: false,
 								callback: (data)=>{

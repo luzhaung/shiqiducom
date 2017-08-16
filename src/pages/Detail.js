@@ -199,7 +199,7 @@ export default class Detail extends Component{
 	async componentDidMount(){
 		const {state : { params: { id } }} = this.props.navigation;
 		let textData, jsonData;
-		//AsyncStorage.setItem(id, '');
+		AsyncStorage.setItem(id, '');
 		textData = await AsyncStorage.getItem(id);
 		if (!textData){
 			const rawData = await fetch(`${DetailUrl}?id=${id}`);
@@ -207,11 +207,10 @@ export default class Detail extends Component{
 		}/*else{
 		 Alert.alert('', '数据来自本地!');
 		 }*/
-
 		// 反序列化
 		jsonData = JSON.parse(textData);
 		// 序列化，这里只能存字符串
-		AsyncStorage.setItem(jsonData.data.id, textData);
+		AsyncStorage.setItem(jsonData.data.id.toString(), textData);
 
 		if (jsonData.status === -1){
 			this.setState({
